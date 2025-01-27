@@ -1,9 +1,5 @@
 import { yarg } from './config/plugins/args.plugin';
-import { hideBin } from 'yargs/helpers';
-
-// console.log(process.argv);
-
-// console.log(yarg);
+import { ServerApp } from './presentation/server-app'
 
 (async() => {
     await main();
@@ -12,6 +8,8 @@ import { hideBin } from 'yargs/helpers';
 
 async function main () {
 
-    console.log( yarg )
+    const { b:base , l:limit, s:showTable } = yarg;
+
+    ServerApp.run( { base , limit , showTable  } );
 
 }

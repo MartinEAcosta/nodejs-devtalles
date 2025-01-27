@@ -11,7 +11,7 @@ export const yarg = yargs(hideBin(process.argv))
     .option('l', {
         alias : 'limit',
         type :  'number',
-        demandOption : false,
+        demandOption : true,
         describe : 'Multiplication table limit'
     })
     .option('s', {

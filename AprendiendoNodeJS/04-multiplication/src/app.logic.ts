@@ -1,7 +1,11 @@
 import fs from 'fs';
+import { yarg } from './config/plugins/args.plugin';
+
+const { b:base , s:showTable , l:limit } = yarg;
 
 let outputMessage = '';
-const base = 5;
+const stop = limit ? limit : 10;
+
 const headerMessage = `
 ==================================
        Tabla del ${ base }
@@ -9,15 +13,19 @@ const headerMessage = `
 `;
 
 
-for( let i  = 1; i <= 10 ; i++ ){
+for( let i  = 1; i <= stop ; i++ ){
     outputMessage += `${base} x ${i} = ${ base * i } \n`;
 }
 
 const outputPath = `outputs`;
 
 fs.mkdirSync(outputPath , { recursive : true });
+
 outputMessage = headerMessage + outputMessage;
-console.log(outputMessage);
+
+if( showTable ){
+    console.log(outputMessage);
+}
 
 fs.writeFileSync(`${ outputPath }/tabla-${base}.txt`, outputMessage);
 console.log("File Created");
