@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { yarg } from './config/plugins/args.plugin';
 
 const { b:base , s:showTable , l:limit } = yarg;
@@ -13,19 +12,13 @@ const headerMessage = `
 `;
 
 
-
-const outputPath = `outputs`;
-
-fs.mkdirSync(outputPath , { recursive : true });
-
 outputMessage = headerMessage + outputMessage;
 
 if( showTable ){
     console.log(outputMessage);
 }
 
-fs.writeFileSync(`${ outputPath }/tabla-${base}.txt`, outputMessage);
-console.log("File Created");
+
 
 
 
