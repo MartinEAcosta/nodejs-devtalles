@@ -13,9 +13,6 @@ const headerMessage = `
 `;
 
 
-for( let i  = 1; i <= stop ; i++ ){
-    outputMessage += `${base} x ${i} = ${ base * i } \n`;
-}
 
 const outputPath = `outputs`;
 
